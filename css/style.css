@@ -1,0 +1,10 @@
+.flex-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.overflow {
+  height: 700px;
+  overflow-y: auto !important;
+}

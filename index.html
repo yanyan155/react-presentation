@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/style.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>React</h2>
+					<p>
+						by Yanis Machkin
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>What is React?</h2>
+						<p>React is a component-based library which is used to develop interactive User Interfaces. It is currently one of the most popular JavaScript front-end library.</p>
+					</section>
+					<section class="overflow">
+						<h2>Why React so fast?</h2>
+						<h3>Virtual DOM</h3>
+						<p>Virtual DOM is in-memory representation of Real DOM. It is lightweight JavaScript object which is copy of Real DOM.</p>
+						<p>At any given time, ReactJS maintains two virtual DOMs, the updated  and the previous states.</p>
+						<h3>Effective Updating Virtual DOM</h3>
+						<ul>
+							<li>Efficient diff algorithm</li>
+							<li>Batched update operations</li>
+							<li>Efficient update of sub tree only</li>
+							<li>Uses observable’s instead of dirty checking to detect change</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Virtual DOM element vs "real" DOM element</h2>
+						<div class="flex-wrap">
+							<img src="./img/components/react-elem.png" alt="react-elem img">
+							<img src="./img/components/dom-elem1.png" alt="dom-elem img">
+						</div>
+					</section>
+					<section class="overflow">
+						<h2>States to find the difference in both the Virtual DOM’s</h2>
+						<ul>
+							<li>If the state of a component has changed, then ReactJS re-renders all the child components even if child components are not modified.</li>
+							<li><p>ReactJS traverse the tree using Breadth First Search.</p>
+							<img src="./img/components/traverse.png" alt="traverse image"></li>
+							<li><p>Reconciliation</p>
+								<pre><code class="hljs"><!-- initial JSX --> 
+<ul>
+	<li key="zh">Zurich</li>
+	<li key="ld">London</li>
+</ul>
+<!-- target JSX -->
+<ul>
+	<li key="ny">New York</li> <!-- update -->
+	<li key="zh">Zurich</li>
+	<li key="ld">London</li>
+</ul></code></pre>
+						</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<h2>What is JSX?</h2>
+					<img src="./img/components/attributes.png" alt="attributes jsx img">
+				</section>
+				<section class="overflow">
+					<h2>React element</h2>
+					<pre><code class="hljs">import React from 'react';
+import ReactDOM from 'react-dom';
+const element = <h1>Hello, world</h1>;
+ReactDOM.render(element, document.getElementById('root'));</code></pre>
+					<h2>Stateless component</h2>
+					<img src="./img/components/custom-variables2.png" alt="react component img">
+					<h2>Statefull component</h2> 
+					<img src="./img/components/class.png" alt="class component img">
+				</section>
+				<section>
+					<section>
+						<h2>Component's life circle</h2>
+						<img src="./img/components/life-circle.png" alt="life circle image">
+					</section>
+					<section  class="overflow">
+						<img src="./img/components/class.png" alt="class image">
+						<img src="./img/components/granular-dom-updates.gif" alt="clock image">
+					</section>
+				</section>
+				<section>
+					<h2>Basic concepts of setState()</h2>
+					<pre><code class="hljs">// wrong
+this.state.fullName = 'victor'
+// correct
+this.setState( {fullName: 'victor'} );</code></pre>
+					<img src="./img/components/setState1.png" alt="setState img">
+				</section>
+				<section>
+					<section>
+						<h2>faq</h2>
+						<p>If you have any question or feedback send them please to <a href="mailto:jm@tut.by">jm@tut.by</a>
+						<p>
+					</section>
+					<section>
+						<h2>links</h2>
+						<ul>
+							<li><a href="https://www.edureka.co/blog/what-is-react/">www.edureka.co</a></li>
+							<li><a href="https://reactjs.org/">reactjs.org into</a></li>
+							<li><a href="https://reactjs.org/docs/introducing-jsx.html">reactjs.org introducing to jsx</a></li>
+							<li><a href="https://reactjs.org/docs/jsx-in-depth.html">reactjs.org jsx in depth</a></li>
+							<li><a href="https://reactjs.org/docs/rendering-elements.html">reactjs.org rendering elements</a></li>
+							<li><a href="https://coursehunters.net/course/react-redux-professionalnaya-razrabotka">coursehunters.net  react redux professionalnaya razrabotka</a></li>
+							<li><a href="https://medium.freecodecamp.org/get-pro-with-react-setstate-in-10-minutes-d38251d1c781">react setstate in 10 minutes</a></li>
+							<li><a href="https://hackernoon.com/virtual-dom-in-reactjs-43a3fdb1d130">virtual dom in reactjs</a></li>
+						</ul>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
